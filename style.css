@@ -1,0 +1,330 @@
+/* CK17 Great Crystal — DPC Banyuwangi
+   Tema ungu-emas (sesuai banner kanal @greatcrystal).
+   Mobile-first, huruf besar dan mudah dibaca. */
+
+:root {
+  --ungu-tua: #3d1a5c;
+  --ungu: #5b2a86;
+  --ungu-muda: #f3ecfa;
+  --emas: #c9a227;
+  --emas-terang: #e8c85a;
+  --teks: #2e2138;
+  --teks-muda: #5c4a6b;
+  --putih: #ffffff;
+  --latar: #fdfbf7;
+  --garis: #e5d9f2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--teks);
+  background: var(--latar);
+}
+
+a { color: var(--ungu); }
+a:hover { color: var(--ungu-tua); }
+
+.bungkus { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Header ---------- */
+header.situs {
+  background: var(--ungu-tua);
+  color: var(--putih);
+  padding: 16px 0 0;
+  border-bottom: 4px solid var(--emas);
+}
+header.situs .bungkus {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--putih);
+  padding-bottom: 14px;
+}
+.lencana {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--emas);
+  color: var(--ungu-tua);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  flex: none;
+}
+.nama-situs { font-size: 22px; font-weight: 700; line-height: 1.25; }
+.nama-situs .sub {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--emas-terang);
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  padding-bottom: 12px;
+}
+nav a {
+  color: var(--putih);
+  text-decoration: none;
+  font-size: 17px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+nav a:hover { background: rgba(255, 255, 255, 0.14); }
+nav a.aktif {
+  background: var(--emas);
+  color: var(--ungu-tua);
+  font-weight: 700;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--ungu-tua), var(--ungu) 70%);
+  color: var(--putih);
+  padding: 44px 0 40px;
+}
+.hero h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--emas-terang);
+}
+.hero .tagline {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.hero p { margin-top: 12px; max-width: 640px; }
+.hero .kecil { font-size: 16px; color: #e8ddf5; }
+
+/* ---------- Bagian isi ---------- */
+main { padding-bottom: 48px; }
+section { margin-top: 36px; }
+h2 {
+  font-size: 26px;
+  line-height: 1.3;
+  color: var(--ungu-tua);
+  border-left: 6px solid var(--emas);
+  padding-left: 14px;
+  margin-bottom: 14px;
+}
+h3 {
+  font-size: 21px;
+  line-height: 1.35;
+  color: var(--ungu);
+  margin: 22px 0 8px;
+}
+p { margin-bottom: 12px; }
+ul, ol { margin: 0 0 14px 24px; }
+li { margin-bottom: 6px; }
+.sumber {
+  font-size: 15px;
+  color: var(--teks-muda);
+}
+
+/* Statistik */
+.statistik {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 28px;
+}
+.statistik div {
+  background: var(--ungu-muda);
+  border: 1px solid var(--garis);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+}
+.statistik strong {
+  display: block;
+  font-size: 34px;
+  line-height: 1.1;
+  color: var(--ungu);
+}
+.statistik span { font-size: 15px; color: var(--teks-muda); }
+
+/* Daftar sasana & pengurus */
+.sasana li, .pengurus li { margin-bottom: 8px; }
+
+/* Kartu besar (navigasi halaman utama & daftar kegiatan) */
+.kartu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.kartu {
+  display: block;
+  background: var(--putih);
+  border: 2px solid var(--ungu);
+  border-top: 6px solid var(--emas);
+  border-radius: 14px;
+  padding: 22px;
+  text-decoration: none;
+  color: var(--teks);
+}
+.kartu:hover { background: var(--ungu-muda); }
+.kartu strong {
+  display: block;
+  font-size: 22px;
+  color: var(--ungu-tua);
+  margin-bottom: 4px;
+}
+.kartu span { color: var(--teks-muda); }
+.kartu .buka {
+  display: block;
+  margin-top: 10px;
+  font-weight: 700;
+  color: var(--ungu);
+}
+.kartu .meta { font-size: 15px; color: var(--teks-muda); }
+
+/* Placeholder foto — rapi, jelas bukan foto acara */
+.foto-placeholder {
+  border: 2px dashed var(--emas);
+  background: var(--ungu-muda);
+  border-radius: 12px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 16px;
+  margin: 14px 0 6px;
+  color: var(--teks-muda);
+}
+.foto-placeholder .judul-foto {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ungu-tua);
+}
+.foto-placeholder p { margin: 4px 0 0; font-size: 16px; }
+.keterangan-foto {
+  font-size: 15px;
+  color: var(--teks-muda);
+  margin-bottom: 8px;
+}
+
+/* Babak cerita peresmian */
+.babak {
+  border-top: 2px solid var(--garis);
+  padding-top: 8px;
+}
+.babak h2 { border-left: none; padding-left: 0; }
+.babak h2 .nomor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--emas);
+  color: var(--ungu-tua);
+  font-size: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Kotak pesan / ringkasan pidato */
+.pesan {
+  background: var(--ungu-muda);
+  border-left: 6px solid var(--emas);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 18px;
+  margin: 16px 0;
+}
+.pesan h3 { margin-top: 0; }
+.pesan p:last-child { margin-bottom: 0; }
+.pesan ol { margin-bottom: 0; }
+
+/* Video */
+.video-bungkus {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--ungu);
+  margin: 12px 0 6px;
+  background: #000;
+}
+.video-bungkus iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-portrait {
+  aspect-ratio: 9 / 16;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.video-item { margin-bottom: 28px; }
+.video-item h3 { margin-bottom: 2px; }
+
+/* Kartu "segera hadir" */
+.segera-hadir {
+  border: 2px dashed var(--emas);
+  background: #fff8e1;
+  border-radius: 12px;
+  padding: 22px;
+  margin: 16px 0;
+}
+.segera-hadir strong { color: var(--ungu-tua); font-size: 20px; }
+
+/* Galeri */
+.galeri-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Tombol kembali */
+.kembali {
+  display: inline-block;
+  margin-top: 32px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--ungu-tua);
+  color: #e8ddf5;
+  padding: 28px 0;
+  border-top: 4px solid var(--emas);
+  font-size: 16px;
+}
+footer strong { color: var(--emas-terang); }
+footer a { color: var(--emas-terang); }
+footer p { margin-bottom: 6px; }
+
+/* ---------- Layar lebih lebar ---------- */
+@media (min-width: 640px) {
+  .kartu-grid { grid-template-columns: 1fr 1fr; }
+  .galeri-grid { grid-template-columns: 1fr 1fr; }
+  .statistik { grid-template-columns: repeat(4, 1fr); }
+  .hero h1 { font-size: 48px; }
+  header.situs .bungkus { justify-content: space-between; }
+  nav { padding-bottom: 14px; }
+}
