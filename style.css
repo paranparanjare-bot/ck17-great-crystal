@@ -53,21 +53,15 @@ header.situs .bungkus {
   color: var(--putih);
   padding-bottom: 14px;
 }
-.lencana {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.logo-gambar {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--emas);
-  color: var(--ungu-tua);
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: 0.5px;
+  background: var(--putih);
   flex: none;
 }
-.nama-situs { font-size: 22px; font-weight: 700; line-height: 1.25; }
+.nama-situs { font-size: 20px; font-weight: 700; line-height: 1.25; }
+.nama-situs .nama-utama { white-space: nowrap; }
 .nama-situs .sub {
   display: block;
   font-size: 15px;
@@ -327,4 +321,10 @@ footer p { margin-bottom: 6px; }
   .hero h1 { font-size: 48px; }
   header.situs .bungkus { justify-content: space-between; }
   nav { padding-bottom: 14px; }
+}
+
+/* Layar sangat kecil: logo + nama tetap satu baris */
+@media (max-width: 380px) {
+  .logo-gambar { width: 44px; height: 44px; }
+  .nama-situs { font-size: 18px; }
 }
