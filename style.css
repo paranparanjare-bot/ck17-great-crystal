@@ -13,6 +13,9 @@
   --putih: #ffffff;
   --latar: #fdfbf7;
   --garis: #e5d9f2;
+  --grad-header: linear-gradient(135deg, #2e1145 0%, #5b2a86 55%, #7c3aed 100%);
+  --grad-tombol: linear-gradient(135deg, #5b2a86 0%, #8b5cf6 100%);
+  --grad-hero: linear-gradient(135deg, #3d1a5c 0%, #6d28a8 60%, #8b5cf6 100%);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,7 +37,7 @@ a:hover { color: var(--ungu-tua); }
 
 /* ---------- Header ---------- */
 header.situs {
-  background: var(--ungu-tua);
+  background: var(--grad-header);
   color: var(--putih);
   padding: 16px 0 0;
   border-bottom: 4px solid var(--emas);
@@ -90,12 +93,23 @@ nav a.aktif {
 
 /* ---------- Hero ---------- */
 .hero {
-  background: linear-gradient(135deg, var(--ungu-tua), var(--ungu) 70%);
+  background: var(--grad-hero);
   color: var(--putih);
   padding: 44px 0 40px;
+  text-align: center;
+}
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--putih);
+  border: 3px solid var(--emas);
+  display: block;
+  margin: 0 auto 16px;
 }
 .hero h1 {
-  font-size: 40px;
+  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif;
+  font-size: clamp(26px, 7.5vw, 48px);
   line-height: 1.15;
   color: var(--emas-terang);
 }
@@ -104,13 +118,14 @@ nav a.aktif {
   font-weight: 700;
   margin-top: 4px;
 }
-.hero p { margin-top: 12px; max-width: 640px; }
+.hero p { margin: 12px auto 0; max-width: 640px; }
 .hero .kecil { font-size: 16px; color: #e8ddf5; }
 
 /* ---------- Bagian isi ---------- */
 main { padding-bottom: 48px; }
 section { margin-top: 36px; }
 h2 {
+  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif;
   font-size: 26px;
   line-height: 1.3;
   color: var(--ungu-tua);
@@ -165,29 +180,29 @@ li { margin-bottom: 6px; }
 }
 .kartu {
   display: block;
-  background: var(--putih);
-  border: 2px solid var(--ungu);
-  border-top: 6px solid var(--emas);
-  border-radius: 14px;
+  background: var(--grad-tombol);
+  border: none;
+  border-radius: 24px;
   padding: 22px;
   text-decoration: none;
-  color: var(--teks);
+  color: var(--putih);
+  box-shadow: 0 6px 18px rgba(91, 42, 134, 0.35);
 }
-.kartu:hover { background: var(--ungu-muda); }
+.kartu:hover { filter: brightness(1.08); }
 .kartu strong {
   display: block;
   font-size: 22px;
-  color: var(--ungu-tua);
+  color: var(--putih);
   margin-bottom: 4px;
 }
-.kartu span { color: var(--teks-muda); }
+.kartu span { color: #e9e2f7; }
 .kartu .buka {
   display: block;
   margin-top: 10px;
   font-weight: 700;
-  color: var(--ungu);
+  color: var(--emas-terang);
 }
-.kartu .meta { font-size: 15px; color: var(--teks-muda); }
+.kartu .meta { font-size: 15px; color: #e9e2f7; }
 
 /* Placeholder foto — rapi, jelas bukan foto acara */
 .foto-placeholder {
@@ -299,11 +314,18 @@ li { margin-bottom: 6px; }
   margin-top: 32px;
   font-weight: 700;
   font-size: 18px;
+  background: var(--grad-tombol);
+  color: var(--putih);
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(91, 42, 134, 0.35);
 }
+.kembali:hover { color: var(--putih); filter: brightness(1.08); }
 
 /* ---------- Footer ---------- */
 footer {
-  background: var(--ungu-tua);
+  background: var(--grad-header);
   color: #e8ddf5;
   padding: 28px 0;
   border-top: 4px solid var(--emas);
@@ -328,3 +350,17 @@ footer p { margin-bottom: 6px; }
   .logo-gambar { width: 44px; height: 44px; }
   .nama-situs { font-size: 18px; }
 }
+
+/* Foto hero + profil pengurus (redesain gaya link-in-bio) */
+.hero-foto { margin: 24px 0 0; }
+.hero-foto img { display: block; width: 100%; height: auto; border-radius: 16px; border: 3px solid var(--emas); box-shadow: 0 8px 24px rgba(61, 26, 92, 0.35); }
+.hero-foto figcaption { font-size: 15px; color: var(--teks-muda); text-align: center; margin-top: 8px; }
+.hero .hero-foto figcaption { color: #e8ddf5; }
+.hero h1.satu-baris { white-space: nowrap; }
+.profil-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 16px 0; }
+.profil { background: var(--putih); border: 2px solid var(--ungu); border-radius: 16px; padding: 20px; text-align: center; }
+.profil img { width: 132px; height: 132px; object-fit: cover; border-radius: 50%; border: 3px solid var(--emas); display: block; margin: 0 auto 12px; }
+.profil strong { display: block; font-size: 20px; color: var(--ungu-tua); }
+.profil span { color: var(--teks-muda); font-size: 16px; }
+.kartu-foto { display: block; width: 100%; height: auto; border-radius: 12px; margin-bottom: 12px; }
+@media (min-width: 640px) { .profil-grid { grid-template-columns: 1fr 1fr; } }
