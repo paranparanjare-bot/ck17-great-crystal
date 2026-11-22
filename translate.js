@@ -4,14 +4,15 @@
 // lewat widget Google (tanpa muat ulang) atau cookie + muat ulang bila
 // widget belum siap. Pilihan tersimpan di cookie googtrans dan berlaku
 // di semua halaman.
-document.addEventListener('DOMContentLoaded', function () {
-  var tombol = document.querySelector('.tombol-terjemah');
-  var menu = document.getElementById('menu-bahasa');
-  if (!tombol || !menu) return;
-  var pilihan = menu.querySelectorAll('[data-bahasa]');
-
-  // Wadah tersembunyi untuk widget Google (dibuat di sini supaya keenam
-  // halaman HTML tidak perlu diubah satu per satu).
+//
+// Wadah widget dibuat SEGERA (bukan menunggu DOMContentLoaded) karena
+// callback Google (element.js, defer) bisa berjalan sebelum
+// DOMContentLoaded — wadah yang belum ada membuat widget gagal start.
+// Ditemukan 22 Nov 2026: di browser desktop widget tidak pernah muncul
+// sehingga tombol bahasa hanya mengganti tanda aktif tanpa menerjemahkan;
+// di HP Eko yang koneksinya lambat, element.js tiba belakangan sehingga
+// wadah sudah ada dan terjemahan jalan.
+function pastikanWadah() {
   var wadah = document.getElementById('google_translate_element');
   if (!wadah) {
     wadah = document.createElement('div');
@@ -19,6 +20,15 @@ document.addEventListener('DOMContentLoaded', function () {
     wadah.setAttribute('aria-hidden', 'true');
     document.body.appendChild(wadah);
   }
+  return wadah;
+}
+pastikanWadah();
+
+document.addEventListener('DOMContentLoaded', function () {
+  var tombol = document.querySelector('.tombol-terjemah');
+  var menu = document.getElementById('menu-bahasa');
+  if (!tombol || !menu) return;
+  var pilihan = menu.querySelectorAll('[data-bahasa]');
 
   function bahasaAktif() {
     var m = document.cookie.match(/(?:^|;)\s*googtrans=\/id\/([^;]+)/);
@@ -76,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Dipanggil Google Translate begitu skripnya termuat.
 window.googleTranslateElementInit = function () {
   if (typeof google === 'undefined' || !google.translate) return;
+  pastikanWadah();
   new google.translate.TranslateElement({
     pageLanguage: 'id',
     includedLanguages: 'en,zh-TW',
