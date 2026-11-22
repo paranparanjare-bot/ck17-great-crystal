@@ -391,9 +391,9 @@ footer p { margin-bottom: 6px; }
 @media (min-width: 640px) {
   .hero-foto-utama { margin-top: -76px; }
   .hero-foto-utama > img { aspect-ratio: 16 / 7; object-position: center 35%; }
-  .kartu-hero { left: 50%; right: auto; transform: translateX(-50%); width: 440px; gap: 12px; }
+  .kartu-hero { left: 50%; right: auto; transform: translateX(-50%); width: 380px; gap: 12px; }
   .kartu-kecil { padding: 10px; }
-  .kartu-kecil img { width: 64px; height: 64px; }
+  .kartu-kecil img { width: 56px; height: 56px; }
   .kartu-kecil strong { font-size: 15px; }
   .kartu-kecil span { font-size: 12px; }
 }
