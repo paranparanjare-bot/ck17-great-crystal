@@ -178,28 +178,6 @@ li { margin-bottom: 6px; }
   color: var(--teks-muda);
 }
 
-/* Statistik */
-.statistik {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 28px;
-}
-.statistik div {
-  background: var(--ungu-muda);
-  border: 1px solid var(--garis);
-  border-radius: 12px;
-  padding: 16px 12px;
-  text-align: center;
-}
-.statistik strong {
-  display: block;
-  font-size: 34px;
-  line-height: 1.1;
-  color: var(--ungu);
-}
-.statistik span { font-size: 15px; color: var(--teks-muda); }
-
 /* Daftar sasana & pengurus */
 .sasana li, .pengurus li { margin-bottom: 8px; }
 
@@ -370,7 +348,6 @@ footer p { margin-bottom: 6px; }
 @media (min-width: 640px) {
   .kartu-grid { grid-template-columns: 1fr 1fr; }
   .galeri-grid { grid-template-columns: 1fr 1fr; }
-  .statistik { grid-template-columns: repeat(4, 1fr); }
   .hero h1 { font-size: 48px; }
   .logo-gambar { width: 72px; height: 72px; }
   .nama-situs { font-size: 28px; }
@@ -422,17 +399,27 @@ footer p { margin-bottom: 6px; }
   right: 16px;
   bottom: 16px;
   z-index: 40;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  border: 2px solid var(--emas);
-  background: var(--grad-tombol);
-  color: var(--putih);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: none;
+  background: none;
+  padding: 0;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(61, 26, 92, 0.45);
+  animation: denyut 2.2s ease-out infinite;
+}
+.tombol-chat img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+@keyframes denyut {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+  70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 .latar-chat {
   position: fixed;
@@ -449,17 +436,30 @@ footer p { margin-bottom: 6px; }
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 50;
-  width: min(440px, calc(100vw - 32px));
-  height: min(560px, 80vh);
+  width: min(420px, calc(100vw - 32px));
+  height: min(620px, calc(100dvh - 40px));
   display: none;
   flex-direction: column;
   background: var(--putih);
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   border: 1px solid var(--garis);
 }
 .panel-chat.terbuka { display: flex; animation: muncul 0.25s ease-out; }
+@media (max-width: 480px) {
+  .panel-chat {
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+  }
+  .panel-chat.terbuka { animation: muncul-hp 0.25s ease-out; }
+}
+@keyframes muncul-hp { from { opacity: 0; } to { opacity: 1; } }
 @keyframes muncul { from { opacity: 0; transform: translate(-50%, -48%) scale(0.97); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
 .logo-chat {
   width: 40px;
@@ -488,6 +488,14 @@ footer p { margin-bottom: 6px; }
   cursor: pointer;
   padding: 4px 8px;
 }
+.telepon-chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--putih);
+  padding: 6px;
+  flex-shrink: 0;
+}
 .pesan-chat {
   flex: 1;
   overflow-y: auto;
@@ -495,30 +503,72 @@ footer p { margin-bottom: 6px; }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #ECE5DD;
+  background: #EFEAE2;
 }
 .pesan-chat .gelembung {
-  max-width: 85%;
-  padding: 10px 14px;
-  border-radius: 14px;
+  position: relative;
+  max-width: 75%;
+  padding: 8px 10px;
+  border-radius: 8px;
   font-size: 15px;
   line-height: 1.45;
 }
 .pesan-chat .gelembung.bot {
   background: var(--putih);
-  border: 1px solid var(--garis);
   align-self: flex-start;
-  border-bottom-left-radius: 4px;
+  border-top-left-radius: 0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+.pesan-chat .gelembung.bot::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid var(--putih);
+  border-left: 8px solid transparent;
 }
 .pesan-chat .gelembung.bot a { color: var(--ungu); font-weight: 700; }
 .pesan-chat .gelembung.saya {
-  background: #DCF8C6;
+  background: #D9FDD3;
   color: #111b21;
   align-self: flex-end;
-  border-bottom-right-radius: 4px;
+  border-top-right-radius: 0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
 }
+.pesan-chat .gelembung.saya::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -7px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid #D9FDD3;
+  border-right: 8px solid transparent;
+}
+.pesan-chat .gelembung .meta {
+  float: right;
+  font-size: 11px;
+  color: #8696a0;
+  margin: 8px -2px -2px 8px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pesan-chat .gelembung .meta .centang { letter-spacing: -2px; }
+.pesan-chat .gelembung .meta .centang.dibaca { color: #53bdeb; }
+.pesan-chat .gelembung.mengetik { padding: 12px 14px; }
+.titik-mengetik { display: inline-flex; gap: 4px; align-items: center; }
+.titik-mengetik .titik {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8696a0;
+  animation: ketik 1.2s ease-in-out infinite;
+}
+.titik-mengetik .titik:nth-child(2) { animation-delay: 0.2s; }
+.titik-mengetik .titik:nth-child(3) { animation-delay: 0.4s; }
+@keyframes ketik { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-4px); opacity: 1; } }
 .ketik-chat {
   display: flex;
   gap: 8px;
@@ -539,7 +589,7 @@ footer p { margin-bottom: 6px; }
 .ketik-chat button {
   border: none;
   border-radius: 50%;
-  background: #128C7E;
+  background: #00A884;
   color: var(--putih);
   width: 42px;
   height: 42px;

@@ -58,20 +58,65 @@ document.addEventListener('DOMContentLoaded', function () {
     return terbaik ? terbaik.jawab : null;
   }
 
-  function tambahPesan(html, dari) {
+  var statusChat = document.querySelector('.judul-chat span');
+  var statusAwal = statusChat ? statusChat.textContent : '';
+
+  function jamSekarang() {
+    var d = new Date();
+    function dua(n) { return (n < 10 ? '0' : '') + n; }
+    return dua(d.getHours()) + ':' + dua(d.getMinutes());
+  }
+
+  // Isi gelembung ala WhatsApp: teks + jam (dan centang untuk pesan kita).
+  function isiGelembung(b, html, dari) {
+    b.classList.remove('mengetik');
+    b.innerHTML = '';
+    var isi = document.createElement('span');
+    isi.className = 'teks';
+    if (dari === 'bot') { isi.innerHTML = html; } else { isi.textContent = html; }
+    b.appendChild(isi);
+    var meta = document.createElement('span');
+    meta.className = 'meta';
+    meta.appendChild(document.createTextNode(jamSekarang()));
+    if (dari === 'saya') {
+      var c = document.createElement('span');
+      c.className = 'centang';
+      c.textContent = ' \u2713\u2713';
+      meta.appendChild(c);
+    }
+    b.appendChild(meta);
+  }
+
+  function tambahPesan(html, dari, mengetik) {
     var b = document.createElement('div');
     b.className = 'gelembung ' + dari;
-    if (dari === 'bot') { b.innerHTML = html; } else { b.textContent = html; }
+    if (mengetik) {
+      b.classList.add('mengetik');
+      b.innerHTML = '<span class="titik-mengetik"><span class="titik"></span><span class="titik"></span><span class="titik"></span></span>';
+    } else {
+      isiGelembung(b, html, dari);
+    }
     daftar.appendChild(b);
     daftar.scrollTop = daftar.scrollHeight;
     return b;
+  }
+
+  // Centang pesan kita jadi biru begitu bot membalas (ala WhatsApp).
+  function tandaiDibaca() {
+    var semua = daftar.querySelectorAll('.centang');
+    for (var i = 0; i < semua.length; i++) { semua[i].classList.add('dibaca'); }
+  }
+
+  function setStatusMengetik(aktif) {
+    if (!statusChat) return;
+    statusChat.textContent = aktif ? 'mengetik...' : statusAwal;
   }
 
   function escapeHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  // Tanya otak AI (Worker). Gelembung "Sedang berpikir…" diganti jawabannya
+  // Tanya otak AI (Worker). Gelembung mengetik (titik-titik) diganti jawabannya
   // begitu respons tiba; bila gagal/timeout, tampilkan fallback WhatsApp.
   function tanyaAI(teks, gelembung) {
     var selesai = false;
@@ -80,7 +125,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (selesai) return;
       selesai = true;
       if (pewaktu) clearTimeout(pewaktu);
-      gelembung.innerHTML = html;
+      isiGelembung(gelembung, html, 'bot');
+      setStatusMengetik(false);
+      tandaiDibaca();
       daftar.scrollTop = daftar.scrollHeight;
     }
     function gagal() { selesaiDenganHtml(JAWABAN_TIDAK_TAHU); }
@@ -111,10 +158,18 @@ document.addEventListener('DOMContentLoaded', function () {
     tambahPesan(t, 'saya');
     var jawab = cariJawaban(t);
     if (jawab) {
-      setTimeout(function () { tambahPesan(jawab, 'bot'); }, 400);
+      var g = tambahPesan('', 'bot', true);
+      setStatusMengetik(true);
+      setTimeout(function () {
+        setStatusMengetik(false);
+        isiGelembung(g, jawab, 'bot');
+        tandaiDibaca();
+        daftar.scrollTop = daftar.scrollHeight;
+      }, 600);
       return;
     }
-    var gelembung = tambahPesan('Sedang berpikir…', 'bot');
+    var gelembung = tambahPesan('', 'bot', true);
+    setStatusMengetik(true);
     tanyaAI(t, gelembung);
   }
 
