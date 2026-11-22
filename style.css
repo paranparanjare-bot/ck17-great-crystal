@@ -415,3 +415,130 @@ footer p { margin-bottom: 6px; }
   .kartu-kecil strong { font-size: 15px; }
   .kartu-kecil span { font-size: 12px; }
 }
+
+/* Chatbot CK17 */
+.tombol-chat {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 40;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--emas);
+  background: var(--grad-tombol);
+  color: var(--putih);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(61, 26, 92, 0.45);
+}
+.panel-chat {
+  position: fixed;
+  right: 16px;
+  bottom: 84px;
+  z-index: 40;
+  width: min(360px, calc(100vw - 32px));
+  height: min(480px, calc(100vh - 120px));
+  display: none;
+  flex-direction: column;
+  background: var(--putih);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--garis);
+}
+.panel-chat.terbuka { display: flex; animation: naik 0.25s ease-out; }
+@keyframes naik { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.kepala-chat {
+  background: var(--grad-header);
+  color: var(--putih);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.judul-chat { flex: 1; }
+.judul-chat strong { display: block; font-size: 18px; }
+.judul-chat span { font-size: 13px; color: #e8ddf5; }
+.tutup-chat {
+  background: none;
+  border: none;
+  color: var(--putih);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.pesan-chat {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #faf7ff;
+}
+.pesan-chat .gelembung {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.pesan-chat .gelembung.bot {
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.pesan-chat .gelembung.bot a { color: var(--ungu); font-weight: 700; }
+.pesan-chat .gelembung.saya {
+  background: var(--ungu);
+  color: var(--putih);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.pilihan-chat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--garis);
+  background: var(--putih);
+}
+.pilihan-chat button {
+  border: 1px solid var(--ungu);
+  background: var(--ungu-muda);
+  color: var(--ungu-tua);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.pilihan-chat button:hover { background: var(--emas); color: var(--ungu-tua); border-color: var(--emas); }
+.ketik-chat {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--garis);
+  background: var(--putih);
+}
+.ketik-chat input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--garis);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: inherit;
+}
+.ketik-chat button {
+  border: none;
+  border-radius: 999px;
+  background: var(--grad-tombol);
+  color: var(--putih);
+  font-weight: 700;
+  padding: 10px 16px;
+  cursor: pointer;
+}
