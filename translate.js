@@ -9,6 +9,23 @@
 // Google: wadah #google_translate_element di HTML + callback inline +
 // element.js async). translate.js HANYA mengurus dropdown, supaya tidak
 // ada perebutan definisi callback atau wadah yang dibuat terlambat.
+// Banner Google (iframe .goog-te-banner-frame) kadang lolos dari CSS —
+// hapus paksa begitu muncul, dan kembalikan posisi body ke 0.
+// Menghapus banner tidak mengganggu terjemahan (banner hanya tombol UI;
+// kembali ke Indonesia lewat dropdown globe).
+function buangBanner() {
+  var b = document.querySelector('iframe.goog-te-banner-frame');
+  if (b) { b.remove(); }
+  if (document.body && document.body.style.top && document.body.style.top !== '0px') {
+    document.body.style.top = '0px';
+  }
+}
+buangBanner();
+if (window.MutationObserver && document.body) {
+  var pengamatBanner = new MutationObserver(buangBanner);
+  pengamatBanner.observe(document.body, { childList: true, attributes: true, attributeFilter: ['style'] });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   var tombol = document.querySelector('.tombol-terjemah');
   var menu = document.getElementById('menu-bahasa');
