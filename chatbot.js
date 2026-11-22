@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     pewaktu = setTimeout(function () {
       if (pengendali) { pengendali.abort(); } else { gagal(); }
-    }, 60000);
+    }, 90000);
     fetch(URL_WORKER, opsi).then(function (r) { return r.json(); }).then(function (data) {
       var a = data && data.jawaban ? String(data.jawaban).trim() : '';
       if (a) { selesaiDenganHtml(escapeHtml(a).replace(/\n/g, '<br>')); }
