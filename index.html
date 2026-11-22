@@ -12,7 +12,8 @@
 <header class="situs">
   <div class="bungkus">
     <a class="logo" href="index.html"><img class="logo-gambar" src="logo.png" alt="Logo CK 17 GREAT CRYSTAL"><span class="nama-situs"><span class="nama-utama">CK 17 GREAT CRYSTAL</span><span class="sub">DPC Banyuwangi</span></span></a>
-    <nav>
+    <button class="tombol-menu" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-utama">☰</button>
+    <nav id="nav-utama">
       <a href="index.html" class="aktif">Beranda</a>
       <a href="kegiatan.html">Kegiatan</a>
       <a href="galeri.html">Galeri Foto</a>
@@ -23,16 +24,26 @@
 </header>
 
 <main>
+  <section class="hero-foto-utama">
+    <img src="hero-peresmian.jpg" alt="Foto bersama besar — Peresmian DPC Banyuwangi, 19 November 2026">
+    <div class="kartu-hero">
+      <div class="kartu-kecil">
+        <img src="foto-ike.jpg" alt="Lao shi IKE Dianita">
+        <strong>Lao shi IKE Dianita</strong>
+        <span>Instruktur Senior di Banyuwangi</span>
+      </div>
+      <div class="kartu-kecil">
+        <img src="foto-agus.jpg" alt="Bapak Agus Sudirman">
+        <strong>Bapak Agus Sudirman</strong>
+        <span>Ketua DPC Banyuwangi</span>
+      </div>
+    </div>
+  </section>
   <section class="hero">
     <div class="bungkus">
-      <img class="hero-logo" src="logo.png" alt="Logo CK 17 GREAT CRYSTAL">
       <h1 class="satu-baris">CK 17 GREAT CRYSTAL</h1>
       <p class="tagline">DPC Banyuwangi</p>
       <p>Sasana qigong bio-energi di Kabupaten Banyuwangi. Diresmikan pada Kamis, 19 November 2026. Latihan gratis dan terbuka untuk masyarakat.</p>
-      <figure class="hero-foto">
-        <img src="hero-peresmian.jpg" alt="Foto bersama besar — Peresmian DPC Banyuwangi, 19 November 2026">
-        <figcaption>Foto bersama besar — Peresmian DPC Banyuwangi, 19 November 2026</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -112,5 +123,6 @@
     <p>Diresmikan 19 November 2026 &middot; <a href="https://www.youtube.com/@greatcrystal">Kanal YouTube @greatcrystal</a></p>
   </div>
 </footer>
+  <script src="menu.js" defer></script>
 </body>
 </html>
