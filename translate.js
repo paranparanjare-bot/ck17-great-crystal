@@ -5,25 +5,10 @@
 // widget belum siap. Pilihan tersimpan di cookie googtrans dan berlaku
 // di semua halaman.
 //
-// Wadah widget dibuat SEGERA (bukan menunggu DOMContentLoaded) karena
-// callback Google (element.js, defer) bisa berjalan sebelum
-// DOMContentLoaded — wadah yang belum ada membuat widget gagal start.
-// Ditemukan 22 Nov 2026: di browser desktop widget tidak pernah muncul
-// sehingga tombol bahasa hanya mengganti tanda aktif tanpa menerjemahkan;
-// di HP Eko yang koneksinya lambat, element.js tiba belakangan sehingga
-// wadah sudah ada dan terjemahan jalan.
-function pastikanWadah() {
-  var wadah = document.getElementById('google_translate_element');
-  if (!wadah) {
-    wadah = document.createElement('div');
-    wadah.id = 'google_translate_element';
-    wadah.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(wadah);
-  }
-  return wadah;
-}
-pastikanWadah();
-
+// Widget Google diinisialisasi oleh skrip inline di HTML (pola resmi
+// Google: wadah #google_translate_element di HTML + callback inline +
+// element.js async). translate.js HANYA mengurus dropdown, supaya tidak
+// ada perebutan definisi callback atau wadah yang dibuat terlambat.
 document.addEventListener('DOMContentLoaded', function () {
   var tombol = document.querySelector('.tombol-terjemah');
   var menu = document.getElementById('menu-bahasa');
@@ -82,15 +67,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
   tandaiAktif(bahasaAktif());
 });
-
-// Dipanggil Google Translate begitu skripnya termuat.
-window.googleTranslateElementInit = function () {
-  if (typeof google === 'undefined' || !google.translate) return;
-  pastikanWadah();
-  new google.translate.TranslateElement({
-    pageLanguage: 'id',
-    includedLanguages: 'en,zh-TW',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-};
