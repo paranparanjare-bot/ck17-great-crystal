@@ -7,6 +7,26 @@ document.addEventListener('DOMContentLoaded', function () {
   var tutup = document.querySelector('.tutup-chat');
   if (!tombol || !panel || !daftar) return;
 
+  // Virtual keyboard (HP): jaga kolom ketik tetap di atas keyboard ala WhatsApp.
+  // Meta viewport memakai interactive-widget=resizes-content agar Chrome mengubah
+  // tinggi layout saat keyboard muncul; visualViewport jadi pengaman browser lain.
+  var layarKecil = window.matchMedia ? window.matchMedia('(max-width: 480px)') : null;
+  function sesuaikanTinggiPanel() {
+    if (!panel.classList.contains('terbuka')) return;
+    if (layarKecil && !layarKecil.matches) { panel.style.height = ''; return; }
+    if (window.visualViewport) {
+      panel.style.height = window.visualViewport.height + 'px';
+      daftar.scrollTop = daftar.scrollHeight;
+    }
+  }
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', sesuaikanTinggiPanel);
+  }
+  masukan.addEventListener('focus', function () {
+    setTimeout(sesuaikanTinggiPanel, 100);
+    setTimeout(function () { daftar.scrollTop = daftar.scrollHeight; }, 300);
+  });
+
   // Otak AI di Cloudflare Worker (dipakai bila tidak ada jawaban lokal).
   var URL_WORKER = 'https://ck17-chatbot.gnet-bwi.workers.dev/';
 
@@ -188,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     tombol.setAttribute('aria-expanded', 'true');
     if (!sudahSapa) {
       sudahSapa = true;
-      tambahPesan('Halo! Saya Bot CK17. Silakan tanya tentang CK17 — misalnya apa itu CK17, di mana sasananya, atau cara bergabung.', 'bot');
+      tambahPesan('Halo! Saya Admin Virtual CK17. Silakan tanya tentang CK17 — misalnya apa itu CK17, di mana sasananya, atau cara bergabung.', 'bot');
     }
     masukan.focus();
   }
@@ -196,6 +216,7 @@ document.addEventListener('DOMContentLoaded', function () {
     panel.classList.remove('terbuka');
     latar.classList.remove('tampil');
     document.body.style.overflow = '';
+    panel.style.height = '';
     tombol.setAttribute('aria-expanded', 'false');
   }
   tombol.addEventListener('click', function () {
