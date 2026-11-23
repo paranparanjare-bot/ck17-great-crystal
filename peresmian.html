@@ -7,6 +7,19 @@
 <meta name="description" content="Cerita peresmian Great Crystal CK17 DPC Banyuwangi, Kamis 19 November 2026, di Blambangan Ballroom, Aston Hotel Banyuwangi.">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="logo.png">
+<style>
+.grid-kolase{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.grid-kolase img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block;cursor:pointer}
+.foto-klik{cursor:pointer}
+.modal-foto{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:9999}
+.modal-foto.buka{display:flex}
+.modal-foto img{max-width:94vw;max-height:86vh;object-fit:contain;border-radius:4px}
+.tutup-modal{position:fixed;top:14px;right:16px;background:rgba(255,255,255,.15);color:#fff;border:0;font-size:22px;width:42px;height:42px;border-radius:50%;cursor:pointer;z-index:10000}
+.geser-modal{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);color:#fff;border:0;font-size:30px;width:44px;height:56px;border-radius:8px;cursor:pointer;z-index:10000}
+.geser-modal.kiri{left:8px}
+.geser-modal.kanan{right:8px}
+.penghitung-modal{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:#fff;margin:0;font-size:14px}
+</style>
 </head>
 <body>
 <header class="situs">
@@ -44,7 +57,7 @@
       <h2><span class="nomor">1</span>Persiapan Venue</h2>
       <p>Pagi hari sebelum acara dimulai, panitia menyiapkan ballroom: panggung, kursi peserta, dan perlengkapan acara.</p>
       <figure class="hero-foto">
-        <img src="babak-1.jpg" alt="Persiapan venue — ballroom sebelum acara dimulai, 19 November 2026">
+        <img class="foto-klik" data-penuh="babak-1.jpg" data-grup="babak-1" src="babak-1.jpg" alt="Persiapan venue — ballroom sebelum acara dimulai, 19 November 2026">
         <figcaption>Persiapan venue — ballroom sebelum acara dimulai, 19 November 2026</figcaption>
       </figure>
     </section>
@@ -53,7 +66,7 @@
       <h2><span class="nomor">2</span>Registrasi &amp; Foto Bersama Awal</h2>
       <p>Peserta mulai datang dan mendaftar. Sebagian peserta berfoto bersama sebelum acara dimulai.</p>
       <figure class="hero-foto">
-        <img src="babak-2.jpg" alt="Registrasi & foto bersama awal — peserta mulai datang dan mendaftar">
+        <img class="foto-klik" data-penuh="babak-2.jpg" data-grup="babak-2" src="babak-2.jpg" alt="Registrasi & foto bersama awal — peserta mulai datang dan mendaftar">
         <figcaption>Registrasi & foto bersama awal — peserta mulai datang dan mendaftar</figcaption>
       </figure>
     </section>
@@ -62,7 +75,7 @@
       <h2><span class="nomor">3</span>Kedatangan &amp; Persiapan Acara</h2>
       <p>Rombongan tamu dan peserta terus berdatangan. Suasana ballroom mulai ramai menjelang pembukaan.</p>
       <figure class="hero-foto">
-        <img src="babak-3.jpg" alt="Kedatangan & persiapan acara — suasana ballroom menjelang pembukaan">
+        <img class="foto-klik" data-penuh="babak-3.jpg" data-grup="babak-3" src="babak-3.jpg" alt="Kedatangan & persiapan acara — suasana ballroom menjelang pembukaan">
         <figcaption>Kedatangan & persiapan acara — suasana ballroom menjelang pembukaan</figcaption>
       </figure>
     </section>
@@ -71,7 +84,7 @@
       <h2><span class="nomor">4</span>Sarapan Bersama</h2>
       <p>Sebelum acara inti, peserta sarapan bersama.</p>
       <figure class="hero-foto">
-        <img src="babak-4.jpg" alt="Sarapan bersama sebelum acara inti">
+        <img class="foto-klik" data-penuh="babak-4.jpg" data-grup="babak-4" src="babak-4.jpg" alt="Sarapan bersama sebelum acara inti">
         <figcaption>Sarapan bersama sebelum acara inti</figcaption>
       </figure>
     </section>
@@ -79,9 +92,16 @@
     <section class="babak">
       <h2><span class="nomor">5</span>Foto Bersama Kelompok</h2>
       <p>Peserta berfoto bersama per kelompok sasana.</p>
-      <figure class="hero-foto">
-        <img src="babak-5.jpg" alt="Foto bersama per kelompok sasana">
-        <figcaption>Foto bersama per kelompok sasana</figcaption>
+      <figure class="kolase">
+        <div class="grid-kolase">
+          <img src="babak-5a.jpg" alt="Foto bersama besar di panggung — kelompok peserta di depan backdrop CK 17 GREAT CRYSTAL" data-penuh="babak-5a.jpg" data-grup="babak-5">
+          <img src="babak-5b.jpg" alt="Foto bersama kelompok bapak-bapak di depan backdrop CK 17 GREAT CRYSTAL" data-penuh="babak-5b.jpg" data-grup="babak-5">
+          <img src="babak-5c.jpg" alt="Foto bersama kelompok ibu-ibu di ballroom" data-penuh="babak-5c.jpg" data-grup="babak-5">
+          <img src="babak-5d.jpg" alt="Foto bersama kelompok ibu-ibu di ballroom" data-penuh="babak-5d.jpg" data-grup="babak-5">
+          <img src="babak-5e.jpg" alt="Foto bersama kelompok kecil ibu-ibu" data-penuh="babak-5e.jpg" data-grup="babak-5">
+          <img src="babak-5f.jpg" alt="Foto bersama kelompok kecil di depan panggung" data-penuh="babak-5f.jpg" data-grup="babak-5">
+        </div>
+        <figcaption>Foto bersama per kelompok sasana — ketuk salah satu foto untuk melihatnya sendiri</figcaption>
       </figure>
     </section>
 
@@ -99,7 +119,7 @@
         </ul>
       </div>
       <figure class="hero-foto">
-        <img src="babak-6.jpg" alt="Pembukaan & sambutan di panggung">
+        <img class="foto-klik" data-penuh="babak-6.jpg" data-grup="babak-6" src="babak-6.jpg" alt="Pembukaan & sambutan di panggung">
         <figcaption>Pembukaan & sambutan di panggung</figcaption>
       </figure>
     </section>
@@ -109,7 +129,7 @@
       <p>Puncak acara: pemukulan gong sebagai tanda DPC Banyuwangi resmi diresmikan, disusul penyerahan sertifikat.</p>
       <p>Peresmian dilakukan oleh Ketua Great Crystal Indonesia CK17 Pusat Surabaya, Bapak David Suwondo, disaksikan PORMI Kabupaten Banyuwangi.</p>
       <figure class="hero-foto">
-        <img src="babak-7.jpg" alt="Pemukulan gong peresmian oleh Bapak David Suwondo, Ketua Great Crystal Indonesia CK17 Pusat Surabaya">
+        <img class="foto-klik" data-penuh="babak-7.jpg" data-grup="babak-7" src="babak-7.jpg" alt="Pemukulan gong peresmian oleh Bapak David Suwondo, Ketua Great Crystal Indonesia CK17 Pusat Surabaya">
         <figcaption>Pemukulan gong peresmian oleh Bapak David Suwondo, Ketua Great Crystal Indonesia CK17 Pusat Surabaya</figcaption>
       </figure>
     </section>
@@ -146,7 +166,7 @@
       </div>
 
       <figure class="hero-foto">
-        <img src="babak-8.jpg" alt="Penyerahan sertifikat & cinderamata — 30 instruktur junior dilantik">
+        <img class="foto-klik" data-penuh="babak-8.jpg" data-grup="babak-8" src="babak-8.jpg" alt="Penyerahan sertifikat & cinderamata — 30 instruktur junior dilantik">
         <figcaption>Penyerahan sertifikat & cinderamata — 30 instruktur junior dilantik</figcaption>
       </figure>
     </section>
@@ -157,7 +177,7 @@
       <p><strong>Terima kasih atas kehadiran dan dukungan seluruh anggota.</strong><br>
       Selamat atas peresmian Great Crystal CK17 DPC Banyuwangi, 19 November 2026.</p>
       <figure class="hero-foto">
-        <img src="hero-peresmian.jpg" alt="Foto bersama besar seluruh peserta — Peresmian DPC Banyuwangi, 19 November 2026">
+        <img class="foto-klik" data-penuh="hero-peresmian.jpg" data-grup="hero-peresmian" src="hero-peresmian.jpg" alt="Foto bersama besar seluruh peserta — Peresmian DPC Banyuwangi, 19 November 2026">
         <figcaption>Foto bersama besar seluruh peserta — Peresmian DPC Banyuwangi, 19 November 2026</figcaption>
       </figure>
     </section>
@@ -192,5 +212,75 @@
   </form>
 </div>
 <script src="chatbot.js" defer></script>
+<div class="modal-foto" id="modal-foto" role="dialog" aria-label="Foto ukuran penuh" aria-hidden="true">
+  <button class="tutup-modal" type="button" aria-label="Tutup">&#10005;</button>
+  <button class="geser-modal kiri" type="button" aria-label="Foto sebelumnya">&#8249;</button>
+  <img id="gambar-modal" src="" alt="">
+  <button class="geser-modal kanan" type="button" aria-label="Foto berikutnya">&#8250;</button>
+  <p class="penghitung-modal" id="penghitung-modal"></p>
+</div>
+<script>
+(function(){
+  var modal = document.getElementById('modal-foto');
+  var gambar = document.getElementById('gambar-modal');
+  var penghitung = document.getElementById('penghitung-modal');
+  var tombolKiri = modal.querySelector('.geser-modal.kiri');
+  var tombolKanan = modal.querySelector('.geser-modal.kanan');
+  var daftar = [];
+  var posisi = 0;
+  function tampilkan(i){
+    posisi = (i + daftar.length) % daftar.length;
+    var item = daftar[posisi];
+    gambar.src = item.penuh;
+    gambar.alt = item.alt || '';
+    penghitung.textContent = daftar.length > 1 ? (posisi + 1) + ' / ' + daftar.length : '';
+    var tampilPanah = daftar.length > 1 ? '' : 'none';
+    tombolKiri.style.display = tampilPanah;
+    tombolKanan.style.display = tampilPanah;
+    modal.classList.add('buka');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function tutup(){
+    modal.classList.remove('buka');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  function bukaDari(el){
+    var grup = el.getAttribute('data-grup');
+    daftar = Array.prototype.slice.call(document.querySelectorAll('[data-grup="' + grup + '"]')).map(function(n){
+      return { penuh: n.getAttribute('data-penuh'), alt: n.getAttribute('alt') };
+    });
+    var idx = -1;
+    for (var k = 0; k < daftar.length; k++) {
+      if (daftar[k].penuh === el.getAttribute('data-penuh')) { idx = k; break; }
+    }
+    tampilkan(idx < 0 ? 0 : idx);
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-penuh]') : null;
+    if (t) { bukaDari(t); return; }
+    if (e.target === modal) { tutup(); }
+  });
+  modal.querySelector('.tutup-modal').addEventListener('click', tutup);
+  tombolKiri.addEventListener('click', function(e){ e.stopPropagation(); tampilkan(posisi - 1); });
+  tombolKanan.addEventListener('click', function(e){ e.stopPropagation(); tampilkan(posisi + 1); });
+  document.addEventListener('keydown', function(e){
+    if (!modal.classList.contains('buka')) return;
+    if (e.key === 'Escape') tutup();
+    if (e.key === 'ArrowLeft') tampilkan(posisi - 1);
+    if (e.key === 'ArrowRight') tampilkan(posisi + 1);
+  });
+  var sentuhX = null;
+  modal.addEventListener('touchstart', function(e){ sentuhX = e.changedTouches[0].clientX; }, {passive: true});
+  modal.addEventListener('touchend', function(e){
+    if (sentuhX === null) return;
+    var dx = e.changedTouches[0].clientX - sentuhX;
+    if (dx > 40) tampilkan(posisi - 1);
+    else if (dx < -40) tampilkan(posisi + 1);
+    sentuhX = null;
+  }, {passive: true});
+})();
+</script>
 </body>
 </html>
