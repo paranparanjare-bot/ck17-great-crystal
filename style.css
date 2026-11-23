@@ -260,6 +260,23 @@ li { margin-bottom: 6px; }
   vertical-align: middle;
 }
 
+/* Grid kolase foto babak — thumbnail kotak 1:1 seragam, 3 kolom, rapat tanpa celah.
+   Foto asli utuh tetap tampil di lightbox (data-penuh, object-fit: contain di modal). */
+.grid-kolase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+.grid-kolase img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+}
+
 /* Kotak pesan / ringkasan pidato */
 .pesan {
   background: var(--ungu-muda);
