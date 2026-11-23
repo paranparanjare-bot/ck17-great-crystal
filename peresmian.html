@@ -8,8 +8,9 @@
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="logo.png">
 <style>
-.grid-kolase{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.grid-kolase img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;display:block;cursor:pointer}
+.grid-kolase{columns:3;column-gap:6px}
+.grid-kolase img{width:100%;height:auto;display:block;margin-bottom:6px;border-radius:6px;cursor:pointer}
+@media (max-width:600px){.grid-kolase{columns:2}}
 .foto-klik{cursor:pointer}
 .modal-foto{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:9999}
 .modal-foto.buka{display:flex}
@@ -56,36 +57,61 @@
     <section class="babak">
       <h2><span class="nomor">1</span>Persiapan Venue</h2>
       <p>Pagi hari sebelum acara dimulai, panitia menyiapkan ballroom: panggung, kursi peserta, dan perlengkapan acara.</p>
-      <figure class="hero-foto">
-        <img class="foto-klik" data-penuh="babak-1.jpg" data-grup="babak-1" src="babak-1.jpg" alt="Persiapan venue — ballroom sebelum acara dimulai, 19 November 2026">
-        <figcaption>Persiapan venue — ballroom sebelum acara dimulai, 19 November 2026</figcaption>
+      <figure class="kolase">
+        <div class="grid-kolase">
+          <img src="babak-1a.jpg" alt="Ballroom masih kosong sebelum acara dimulai" data-penuh="babak-1a.jpg" data-grup="babak-1">
+          <img src="babak-1b.jpg" alt="Backdrop panggung CK 17 GREAT CRYSTAL" data-penuh="babak-1b.jpg" data-grup="babak-1">
+          <img src="babak-1c.jpg" alt="Meja bingkisan cinderamata di depan layar" data-penuh="babak-1c.jpg" data-grup="babak-1">
+          <img src="babak-1d.jpg" alt="Deretan karangan bunga ucapan di luar gedung" data-penuh="babak-1d.jpg" data-grup="babak-1">
+          <img src="babak-1e.jpg" alt="Banner Selamat Datang di pintu masuk" data-penuh="babak-1e.jpg" data-grup="babak-1">
+          <img src="babak-1f.jpg" alt="Layar logo Great Crystal di panggung" data-penuh="babak-1f.jpg" data-grup="babak-1">
+        </div>
+        <figcaption>Persiapan venue — ballroom sebelum acara dimulai, 19 November 2026 — ketuk salah satu foto untuk melihatnya sendiri</figcaption>
       </figure>
     </section>
 
     <section class="babak">
       <h2><span class="nomor">2</span>Registrasi &amp; Foto Bersama Awal</h2>
       <p>Peserta mulai datang dan mendaftar. Sebagian peserta berfoto bersama sebelum acara dimulai.</p>
-      <figure class="hero-foto">
-        <img class="foto-klik" data-penuh="babak-2.jpg" data-grup="babak-2" src="babak-2.jpg" alt="Registrasi & foto bersama awal — peserta mulai datang dan mendaftar">
-        <figcaption>Registrasi & foto bersama awal — peserta mulai datang dan mendaftar</figcaption>
+      <figure class="kolase">
+        <div class="grid-kolase">
+          <img src="babak-2a.jpg" alt="Peserta antre di meja registrasi" data-penuh="babak-2a.jpg" data-grup="babak-2">
+          <img src="babak-2b.jpg" alt="Antrean registrasi dari dekat" data-penuh="babak-2b.jpg" data-grup="babak-2">
+          <img src="babak-2c.jpg" alt="Peserta berkumpul di pintu masuk ballroom" data-penuh="babak-2c.jpg" data-grup="babak-2">
+          <img src="babak-2d.jpg" alt="Peserta masuk ke dalam ballroom" data-penuh="babak-2d.jpg" data-grup="babak-2">
+          <img src="babak-2e.jpg" alt="Antrean masuk ke dalam ballroom" data-penuh="babak-2e.jpg" data-grup="babak-2">
+        </div>
+        <figcaption>Registrasi & foto bersama awal — peserta mulai datang dan mendaftar — ketuk salah satu foto untuk melihatnya sendiri</figcaption>
       </figure>
     </section>
 
     <section class="babak">
       <h2><span class="nomor">3</span>Kedatangan &amp; Persiapan Acara</h2>
       <p>Rombongan tamu dan peserta terus berdatangan. Suasana ballroom mulai ramai menjelang pembukaan.</p>
-      <figure class="hero-foto">
-        <img class="foto-klik" data-penuh="babak-3.jpg" data-grup="babak-3" src="babak-3.jpg" alt="Kedatangan & persiapan acara — suasana ballroom menjelang pembukaan">
-        <figcaption>Kedatangan & persiapan acara — suasana ballroom menjelang pembukaan</figcaption>
+      <figure class="kolase">
+        <div class="grid-kolase">
+          <img src="babak-3a.jpg" alt="Peserta berdatangan di depan pintu Blambangan Ballroom" data-penuh="babak-3a.jpg" data-grup="babak-3">
+          <img src="babak-3b.jpg" alt="Meja registrasi dengan goodie bag ungu" data-penuh="babak-3b.jpg" data-grup="babak-3">
+          <img src="babak-3c.jpg" alt="Peserta duduk melingkar besar di ballroom" data-penuh="babak-3c.jpg" data-grup="babak-3">
+          <img src="babak-3d.jpg" alt="Peserta duduk berbaris mendengarkan pengarahan" data-penuh="babak-3d.jpg" data-grup="babak-3">
+          <img src="babak-3e.jpg" alt="Peserta berdiri berbaris di ballroom" data-penuh="babak-3e.jpg" data-grup="babak-3">
+          <img src="babak-3f.jpg" alt="Peserta dengan tangan terangkat saat pengarahan" data-penuh="babak-3f.jpg" data-grup="babak-3">
+        </div>
+        <figcaption>Kedatangan & persiapan acara — suasana ballroom menjelang pembukaan — ketuk salah satu foto untuk melihatnya sendiri</figcaption>
       </figure>
     </section>
 
     <section class="babak">
       <h2><span class="nomor">4</span>Sarapan Bersama</h2>
       <p>Sebelum acara inti, peserta sarapan bersama.</p>
-      <figure class="hero-foto">
-        <img class="foto-klik" data-penuh="babak-4.jpg" data-grup="babak-4" src="babak-4.jpg" alt="Sarapan bersama sebelum acara inti">
-        <figcaption>Sarapan bersama sebelum acara inti</figcaption>
+      <figure class="kolase">
+        <div class="grid-kolase">
+          <img src="babak-4.jpg" alt="Antrean prasmanan sarapan bersama" data-penuh="babak-4.jpg" data-grup="babak-4">
+          <img src="babak-4b.jpg" alt="Peserta mengambil makanan di meja prasmanan" data-penuh="babak-4b.jpg" data-grup="babak-4">
+          <img src="babak-4c.jpg" alt="Peserta makan sambil duduk berderet" data-penuh="babak-4c.jpg" data-grup="babak-4">
+          <img src="babak-4d.jpg" alt="Antrean prasmanan dengan spanduk Selamat Datang di latar" data-penuh="babak-4d.jpg" data-grup="babak-4">
+        </div>
+        <figcaption>Sarapan bersama sebelum acara inti — ketuk salah satu foto untuk melihatnya sendiri</figcaption>
       </figure>
     </section>
 
@@ -118,9 +144,16 @@
           <li>Semangat &ldquo;one team, one passion, one family&rdquo; sebagai fondasi membangun organisasi yang solid; kesamaan visi dan misi menjadi modal utama agar Great Crystal semakin berkembang dan bermanfaat bagi masyarakat.</li>
         </ul>
       </div>
-      <figure class="hero-foto">
-        <img class="foto-klik" data-penuh="babak-6.jpg" data-grup="babak-6" src="babak-6.jpg" alt="Pembukaan & sambutan di panggung">
-        <figcaption>Pembukaan & sambutan di panggung</figcaption>
+      <figure class="kolase">
+        <div class="grid-kolase">
+          <img src="babak-6a.jpg" alt="MC membuka acara di depan layar" data-penuh="babak-6a.jpg" data-grup="babak-6">
+          <img src="babak-6b.jpg" alt="Sambutan di podium" data-penuh="babak-6b.jpg" data-grup="babak-6">
+          <img src="babak-6c.jpg" alt="Ballroom penuh peserta menghadap panggung" data-penuh="babak-6c.jpg" data-grup="babak-6">
+          <img src="babak-6d.jpg" alt="Sambutan pembicara senior di podium" data-penuh="babak-6d.jpg" data-grup="babak-6">
+          <img src="babak-6e.jpg" alt="Peserta duduk menyimak sambutan" data-penuh="babak-6e.jpg" data-grup="babak-6">
+          <img src="babak-6f.jpg" alt="Ballroom penuh dengan pembicara di podium" data-penuh="babak-6f.jpg" data-grup="babak-6">
+        </div>
+        <figcaption>Pembukaan & sambutan di panggung — ketuk salah satu foto untuk melihatnya sendiri</figcaption>
       </figure>
     </section>
 
@@ -128,9 +161,16 @@
       <h2><span class="nomor">7</span>Peresmian (Gong) &amp; Penyerahan Sertifikat</h2>
       <p>Puncak acara: pemukulan gong sebagai tanda DPC Banyuwangi resmi diresmikan, disusul penyerahan sertifikat.</p>
       <p>Peresmian dilakukan oleh Ketua Great Crystal Indonesia CK17 Pusat Surabaya, Bapak David Suwondo, disaksikan PORMI Kabupaten Banyuwangi.</p>
-      <figure class="hero-foto">
-        <img class="foto-klik" data-penuh="babak-7.jpg" data-grup="babak-7" src="babak-7.jpg" alt="Pemukulan gong peresmian oleh Bapak David Suwondo, Ketua Great Crystal Indonesia CK17 Pusat Surabaya">
-        <figcaption>Pemukulan gong peresmian oleh Bapak David Suwondo, Ketua Great Crystal Indonesia CK17 Pusat Surabaya</figcaption>
+      <figure class="kolase">
+        <div class="grid-kolase">
+          <img src="babak-7a.jpg" alt="Kelompok instruktur di panggung memegang sertifikat" data-penuh="babak-7a.jpg" data-grup="babak-7">
+          <img src="babak-7b.jpg" alt="Jabat tangan penyerahan sertifikat di panggung" data-penuh="babak-7b.jpg" data-grup="babak-7">
+          <img src="babak-7c.jpg" alt="Bapak David Suwondo memegang pemukul sebelum memukul gong" data-penuh="babak-7c.jpg" data-grup="babak-7">
+          <img src="babak-7d.jpg" alt="Pemukulan gong peresmian oleh Bapak David Suwondo, Ketua Great Crystal Indonesia CK17 Pusat Surabaya" data-penuh="babak-7d.jpg" data-grup="babak-7">
+          <img src="babak-7e.jpg" alt="Kelompok instruktur junior di panggung memegang sertifikat" data-penuh="babak-7e.jpg" data-grup="babak-7">
+          <img src="babak-7f.jpg" alt="Peserta duduk menyimak di akhir peresmian" data-penuh="babak-7f.jpg" data-grup="babak-7">
+        </div>
+        <figcaption>Pemukulan gong peresmian oleh Bapak David Suwondo, Ketua Great Crystal Indonesia CK17 Pusat Surabaya — ketuk salah satu foto untuk melihatnya sendiri</figcaption>
       </figure>
     </section>
 
@@ -165,9 +205,15 @@
         <p>Para instruktur yang baru dilantik dan semua anggota diajak membagikan manfaat CK17 dengan menolong sesama yang sakit tanpa pamrih.</p>
       </div>
 
-      <figure class="hero-foto">
-        <img class="foto-klik" data-penuh="babak-8.jpg" data-grup="babak-8" src="babak-8.jpg" alt="Penyerahan sertifikat & cinderamata — 30 instruktur junior dilantik">
-        <figcaption>Penyerahan sertifikat & cinderamata — 30 instruktur junior dilantik</figcaption>
+      <figure class="kolase">
+        <div class="grid-kolase">
+          <img src="babak-8a.jpg" alt="Penyerahan sertifikat & cinderamata — 30 instruktur junior dilantik" data-penuh="babak-8a.jpg" data-grup="babak-8">
+          <img src="babak-8b.jpg" alt="Kelompok besar instruktur junior di panggung memegang sertifikat" data-penuh="babak-8b.jpg" data-grup="babak-8">
+          <img src="babak-8c.jpg" alt="Kelompok besar peserta berdiri di lantai ballroom" data-penuh="babak-8c.jpg" data-grup="babak-8">
+          <img src="babak-8d.jpg" alt="Penyerahan cinderamata kotak akrilik" data-penuh="babak-8d.jpg" data-grup="babak-8">
+          <img src="babak-8e.jpg" alt="Foto bersama instruktur junior di depan panggung" data-penuh="babak-8e.jpg" data-grup="babak-8">
+        </div>
+        <figcaption>Penyerahan sertifikat & cinderamata — 30 instruktur junior dilantik — ketuk salah satu foto untuk melihatnya sendiri</figcaption>
       </figure>
     </section>
 
